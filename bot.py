@@ -40,6 +40,9 @@ async def start_command(message: types.Message):
     conn.close()
     keyboard = types.InlineKeyboardMarkup()
 
+    schedule_button = types.InlineKeyboardButton(text="Schedule",
+                                                 web_app=WebAppInfo(
+                                                     url="https://www.geckoterminal.com/ton/pools/EQASBZLwa2vfdsgoDF2w96pdccBJJRxDNXXPUL7NMm0WdnMx"))
     gram_base_button = types.InlineKeyboardButton(text="Gram Base", url="https://t.me/grambase")
     gram_chat_button = types.InlineKeyboardButton(text="Gram Chat", url="https://t.me/tonbasechat")
     gram_community_button = types.InlineKeyboardButton(text="Gram Community", url="https://t.me/gramcommunity")
@@ -50,6 +53,7 @@ async def start_command(message: types.Message):
     gram_mining_button = types.InlineKeyboardButton(text="Gram Mining", callback_data="gram_mining")
     gram_dns_button = types.InlineKeyboardButton(text="Gram DNS", web_app=WebAppInfo(url="https://dns.gramcoin.org/"))
 
+    keyboard.add(schedule_button)
     keyboard.add(gram_base_button, gram_chat_button)
     keyboard.add(gram_community_button, gram_official_button)
     keyboard.add(purchase_exchange_button, liquidity_pool_button)
